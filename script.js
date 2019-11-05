@@ -2,7 +2,7 @@ let x, y, isPainting
 const canvas = document.querySelector('canvas')
 const context = canvas.getContext('2d')
 
-const colors = ["#9ba4a1", "#6c7371", "#a49ba3", "#736c72"]
+const colors = ["#6f9a8d", "#1f6650", "#a49ba3", "#736c72"]
 const colorDiv = document.querySelector(".colors")
 
 colors.forEach(color => {
@@ -19,7 +19,7 @@ const setSize = () => {
   canvas.setAttribute('height', window.innerHeight)
   context.strokeStyle = colors[0]
   context.lineJoin = "round"
-  context.lineWidth = 10
+  context.lineWidth = 3
 }
 
 setSize()

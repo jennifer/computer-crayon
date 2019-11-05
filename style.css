@@ -8,6 +8,10 @@ canvas {
 }
 body {
   background-color: #ebe9de;
+  background-image: url("images/mountains.png");
+  background-size: 100% auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
 }
 .color {
   height: 40px;

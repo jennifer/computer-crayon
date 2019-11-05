@@ -1,0 +1,16 @@
+html,
+body,
+canvas {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  user-select: none;
+}
+body {
+  background-color: #ebe9de;
+}
+.color {
+  height: 40px;
+  width: 25vw;
+  border: none;
+}

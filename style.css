@@ -18,3 +18,24 @@ body {
   width: 25vw;
   border: none;
 }
+nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+.nav-item {
+  margin: 5px;
+}
+.github {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Extra Small Devices, Phones under 480px (XS) */
+@media (max-width: 480px) {
+
+  body {
+    background-position: center 95%;
+  }
+}

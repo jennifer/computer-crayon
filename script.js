@@ -3,6 +3,11 @@ const canvas = document.querySelector('canvas')
 const context = canvas.getContext('2d')
 
 const colors = ["#6f9a8d", "#1f6650", "#a49ba3", "#736c72"]
+
+// const mtnColors = ["#6f9a8d", "#1f6650", "#a49ba3", "#736c72"]
+// const darkColors = ["#01A5EA", "#A057AF", "#F7286F", "#50CE43"]
+// const oldColors = ["#6f9a8d", "#1f6650", "#a49ba3", "#736c72"]
+
 const colorDiv = document.querySelector(".colors")
 
 colors.forEach(color => {

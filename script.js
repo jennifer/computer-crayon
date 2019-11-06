@@ -1,12 +1,12 @@
-let x, y, isPainting
-const canvas = document.querySelector('canvas')
-const context = canvas.getContext('2d')
-
 const colors = ["#6f9a8d", "#1f6650", "#a49ba3", "#736c72"]
 
 // const mtnColors = ["#6f9a8d", "#1f6650", "#a49ba3", "#736c72"]
-// const darkColors = ["#01A5EA", "#A057AF", "#F7286F", "#50CE43"]
+// const darkColors = ["#50ce43", "#01a5ea", "#a057af", "#f7286f"]
 // const oldColors = ["#6f9a8d", "#1f6650", "#a49ba3", "#736c72"]
+
+let x, y, isPainting
+const canvas = document.querySelector('canvas')
+const context = canvas.getContext('2d')
 
 const colorDiv = document.querySelector(".colors")
 

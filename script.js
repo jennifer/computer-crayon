@@ -19,7 +19,7 @@ document.querySelectorAll("li").forEach(function(el){
 });
 
 function renderMtnRange() {
-  const colors = ["#6f9a8d", "#1f6650", "#a49ba3", "#736c72"];
+  const colors = ["#1f6650", "#6f9a8d", "#736c72", "#a49ba3"];
   let lineWidth = 2;
   let style = document.createElement('style');
   style.innerHTML = `

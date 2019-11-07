@@ -17,10 +17,10 @@ document.querySelectorAll("li").forEach(function(el){
     }
   });
 });
-//refactor with function passing the className
 
 function renderMtnRange() {
   const colors = ["#6f9a8d", "#1f6650", "#a49ba3", "#736c72"];
+  let lineWidth = 2;
   let style = document.createElement('style');
   style.innerHTML = `
     body {
@@ -47,11 +47,12 @@ function renderMtnRange() {
     }
   `;
   document.head.appendChild(style);
-  renderPage(colors);
+  renderPage(colors, lineWidth);
 }
 
 function renderDarkMode() {
   const colors = ["#50ce43", "#01a5ea", "#a057af", "#f7286f"];
+  let lineWidth = 4;
   let style = document.createElement('style');
   style.innerHTML = `
     body {
@@ -70,11 +71,12 @@ function renderDarkMode() {
   }
   `;
   document.head.appendChild(style);
-  renderPage(colors);
+  renderPage(colors, lineWidth);
 }
 
 function renderOldInternet() {
   const colors = ["blue", "lime", "fuchsia", "yellow"];
+  let lineWidth = 10;
   let style = document.createElement('style');
   style.innerHTML = `
     body {
@@ -93,6 +95,9 @@ function renderOldInternet() {
     .nav-item:hover, li:hover {
       background-color: black;
     }
+    ul {
+      background-color: transparent;
+    }
     @media (max-width: 1300px) {
       body {
         background-position: 20px 60px, left 94%, center;
@@ -100,10 +105,10 @@ function renderOldInternet() {
     }
   `;
   document.head.appendChild(style);
-  renderPage(colors);
+  renderPage(colors, lineWidth);
 }
 
-function renderPage(colors) {
+function renderPage(colors, lineWidth) {
   let x, y, isPainting
   const canvas = document.querySelector('canvas')
   const context = canvas.getContext('2d')
@@ -123,7 +128,7 @@ function renderPage(colors) {
     canvas.setAttribute('height', window.innerHeight)
     context.strokeStyle = colors[0]
     context.lineJoin = "round"
-    context.lineWidth = 3
+    context.lineWidth = lineWidth
   }
 
   setSize()
@@ -175,6 +180,10 @@ function renderPage(colors) {
   function exit() {
     isPainting = false
   }
+  let clear = document.getElementsByClassName("clear");
+  clear[0].addEventListener("click", () => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  }, false);  
 
   canvas.addEventListener('mouseup', exit)
   canvas.addEventListener('mouseleave', exit)

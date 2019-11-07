@@ -39,7 +39,7 @@ li {
   padding-left: 10px;
   padding-right: 10px;
 }
-.theme-dropdown:hover ul {
+.theme-dropdown:hover ul, .theme-dropdown:active ul {
   display: block;
 }
 .github {

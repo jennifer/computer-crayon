@@ -51,7 +51,7 @@ function renderMtnRange() {
 }
 
 function renderDarkMode() {
-  const colors = ["#50ce43", "#01a5ea", "#a057af", "#f7286f"];
+  const colors = ["#01a5ea", "#50ce43", "#a057af", "#f7286f" ];
   let lineWidth = 4;
   let style = document.createElement('style');
   style.innerHTML = `
@@ -140,8 +140,6 @@ function renderPage(colors, lineWidth) {
     if (["touchstart", "touchmove"].includes(event.type)) {
       // touch coordinates
       event.preventDefault();
-      // document.body.addEventListener('touchmove', preventDefault, { passive: false });
-      // document.body.removeEventListener('touchmove', preventDefault);
       return [event.touches[0].pageX - canvas.offsetLeft, event.touches[0].pageY - canvas.offsetTop]
     } else {
       // click events 

@@ -75,7 +75,7 @@ function renderDarkMode() {
 }
 
 function renderOldInternet() {
-  const colors = ["blue", "lime", "fuchsia", "yellow"];
+  const colors = ["lime", "fuchsia", "aqua", "yellow"];
   let lineWidth = 10;
   let style = document.createElement('style');
   style.innerHTML = `
@@ -137,12 +137,15 @@ function renderPage(colors, lineWidth) {
 
   function getCoordinates(event) {
     // check to see if mobile or desktop
-    if (["mousedown", "mousemove"].includes(event.type)) {
+    if (["touchstart", "touchmove"].includes(event.type)) {
+      // touch coordinates
+      event.preventDefault();
+      // document.body.addEventListener('touchmove', preventDefault, { passive: false });
+      // document.body.removeEventListener('touchmove', preventDefault);
+      return [event.touches[0].pageX - canvas.offsetLeft, event.touches[0].pageY - canvas.offsetTop]
+    } else {
       // click events 
       return [event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop]
-    } else {
-      // touch coordinates
-      return [event.touches[0].pageX - canvas.offsetLeft, event.touches[0].pageY - canvas.offsetTop]
     }
   }
 
@@ -154,8 +157,8 @@ function renderPage(colors, lineWidth) {
     y = coordinates[1]
   }
 
-  canvas.addEventListener('mousedown', startPaint)
   canvas.addEventListener('touchstart', startPaint)
+  canvas.addEventListener('mousedown', startPaint)
 
   function drawLine(firstX, firstY, secondX, secondY) {
     context.beginPath()
@@ -174,18 +177,64 @@ function renderPage(colors, lineWidth) {
     }
   }
 
-  canvas.addEventListener('mousemove', paint)
   canvas.addEventListener('touchmove', paint)
+  canvas.addEventListener('mousemove', paint)
 
   function exit() {
     isPainting = false
   }
+
+  
   let clear = document.getElementsByClassName("clear");
   clear[0].addEventListener("click", () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
   }, false);  
 
+  canvas.addEventListener('touchend', exit)
   canvas.addEventListener('mouseup', exit)
   canvas.addEventListener('mouseleave', exit)
-  canvas.addEventListener('touchend', exit)
 }
+
+
+// function handleMouseMove(e) {
+
+//   // calc where the mouse is on the canvas
+//   mouseX = parseInt(e.clientX - offsetX);
+//   mouseY = parseInt(e.clientY - offsetY);
+
+//   // if the mouse is being dragged (mouse button is down)
+//   // then keep drawing a polyline to this new mouse position
+//   if (isMouseDown) {
+
+//       // extend the polyline
+//       ctx.lineTo(mouseX, mouseY);
+//       ctx.stroke();
+
+//       // save this x/y because we might be drawing from here
+//       // on the next mousemove
+//       lastX = mouseX;
+//       lastY = mouseY;
+
+//       // Command pattern stuff: Save the mouse position and 
+//       // the size/color of the brush to the "undo" array
+//       points.push({
+//           x: mouseX,
+//           y: mouseY,
+//           size: brushSize,
+//           color: brushColor,
+//           mode: "draw"
+//       });
+//   }
+// }
+
+// function undoLastPoint() {
+
+//   // remove the last drawn point from the drawing array
+//   var lastPoint=points.pop();
+
+//   // add the "undone" point to a separate redo array
+//   redoStack.unshift(lastPoint);
+
+//   // redraw all the remaining points
+//   redrawAll();
+// }

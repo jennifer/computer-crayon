@@ -8,45 +8,31 @@ nav, ul, li {
   margin: 0;
   padding: 0;
 }
-body {
-  /* background-color: #1c1d1e; */
-  background-color: #ebe9de;
-  background-image: url("images/mountains.png");
-  background-size: 100% auto;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-}
-.text {
-  color: #444;
-  font-size: 20px;
-}
 .color {
   height: 40px;
   width: 25vw;
   border: none;
 }
+.text {
+  font-size: 18px;
+}
 nav {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  margin-top: 5px;
-  margin-right: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 .nav-item {
-  padding: 10px;
-}
-.nav-item:hover, li:hover {
-  background-color: rgba(0,0,0,0.1);
-  /* background-color: rgba(255,255,255,0.2); */
+  padding: 5px 8px;
 }
 ul {
   display: none;
   position: absolute;
   right: 0;
-  margin-top: 10px;
+  margin-top: 5px;
   line-height: 2;
   list-style-type: none;
-  background-color: rgba(0,0,0,0.1);
 }
 li {
   text-align: right;
@@ -58,15 +44,14 @@ li {
 }
 .github {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  right: 10px;
+  bottom: 10px;
+  padding-right: 10px;
   text-decoration: none;
 }
 
-/* Extra Small Devices, Phones under 480px (XS) */
-@media (max-width: 480px) {
-
+@media (max-width: 1300px) {
   body {
-    background-position: center 95%;
+    background-position: 20px 60px, left 94%, center;
   }
 }

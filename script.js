@@ -34,6 +34,12 @@ function renderMtnRange() {
       font-family: auto;
       color: #444;
     }
+    .dark, .old {
+      text-decoration: none;
+    }
+    .mtn {
+      text-decoration: line-through;
+    }
     .nav-item:hover, li:hover {
       background-color: rgba(0,0,0,0.1); 
     }
@@ -63,6 +69,12 @@ function renderDarkMode() {
     font-family: auto;
     color: #fff
   }
+  .mtn, .old {
+    text-decoration: none;
+  }
+  .dark {
+    text-decoration: line-through;
+  }
   .nav-item:hover, li:hover {
     background-color: rgba(255,255,255,0.2);
   }
@@ -91,6 +103,12 @@ function renderOldInternet() {
     .text {
       color: yellow;
       font-family: "Comic Sans MS", "Comic Sans", cursive;
+    }
+    .mtn, .dark {
+      text-decoration: none;
+    }
+    .old {
+      text-decoration: line-through;
     }
     .nav-item:hover, li:hover {
       background-color: black;
@@ -193,46 +211,3 @@ function renderPage(colors, lineWidth) {
   canvas.addEventListener('mouseleave', exit)
 }
 
-
-// function handleMouseMove(e) {
-
-//   // calc where the mouse is on the canvas
-//   mouseX = parseInt(e.clientX - offsetX);
-//   mouseY = parseInt(e.clientY - offsetY);
-
-//   // if the mouse is being dragged (mouse button is down)
-//   // then keep drawing a polyline to this new mouse position
-//   if (isMouseDown) {
-
-//       // extend the polyline
-//       ctx.lineTo(mouseX, mouseY);
-//       ctx.stroke();
-
-//       // save this x/y because we might be drawing from here
-//       // on the next mousemove
-//       lastX = mouseX;
-//       lastY = mouseY;
-
-//       // Command pattern stuff: Save the mouse position and 
-//       // the size/color of the brush to the "undo" array
-//       points.push({
-//           x: mouseX,
-//           y: mouseY,
-//           size: brushSize,
-//           color: brushColor,
-//           mode: "draw"
-//       });
-//   }
-// }
-
-// function undoLastPoint() {
-
-//   // remove the last drawn point from the drawing array
-//   var lastPoint=points.pop();
-
-//   // add the "undone" point to a separate redo array
-//   redoStack.unshift(lastPoint);
-
-//   // redraw all the remaining points
-//   redrawAll();
-// }

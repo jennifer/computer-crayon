@@ -154,21 +154,17 @@ function renderPage(colors, lineWidth) {
   window.addEventListener("resize", setSize)
 
   function getCoordinates(event) {
-    // check to see if mobile or desktop
     if (["touchstart", "touchmove"].includes(event.type)) {
-      // touch coordinates
       event.preventDefault();
       return [event.touches[0].pageX - canvas.offsetLeft, event.touches[0].pageY - canvas.offsetTop]
     } else {
-      // click events 
       return [event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop]
-    }
-  }
+    };
+  };
 
-  function startPaint (e) {
-    // change the old coordinates to the new ones
+  function startPaint (event) {
     isPainting = true
-    let coordinates = getCoordinates(e)
+    let coordinates = getCoordinates(event)
     x = coordinates[0]
     y = coordinates[1]
   }
@@ -183,10 +179,10 @@ function renderPage(colors, lineWidth) {
     context.closePath()
     context.stroke()
   }
-
-  function paint(e) {
+  
+  function paint(event) {
     if (isPainting) {
-      let [newX, newY] = getCoordinates(e)
+      let [newX, newY] = getCoordinates(event)
       drawLine(x, y, newX, newY)
       x = newX
       y = newY
@@ -200,7 +196,6 @@ function renderPage(colors, lineWidth) {
     isPainting = false
   }
 
-  
   let clear = document.getElementsByClassName("clear");
   clear[0].addEventListener("click", () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -210,4 +205,3 @@ function renderPage(colors, lineWidth) {
   canvas.addEventListener('mouseup', exit)
   canvas.addEventListener('mouseleave', exit)
 }
-
